@@ -14,7 +14,7 @@ import torch
 import torch.backends.cudnn as cudnn
 
 FILE = Path(__file__).absolute()
-sys.path.append(FILE.parents[0].as_posix())  # add yolov5/ to path
+sys.path.append(FILE.parents[0].as_posix())
 
 from models.experimental import attempt_load
 from utils.datasets import LoadStreams, LoadImages
@@ -28,7 +28,7 @@ import streamlit as st
 def run(source,  # file/dir/URL/glob, 0 for webcam
         weights='crowd_best.pt',  # model.pt path(s)q
         imgsz=416,  # inference size (pixels)
-        conf_thres=0.3,  # confidence threshold
+        conf_thresh=0.3,  # confidence threshold
         iou_thres=0.45,  # NMS IOU threshold
         max_det=1000,  # maximum detections per image
         device='',  # cuda device, i.e. 0 or 0,1,2,3 or cpu
@@ -49,7 +49,6 @@ def run(source,  # file/dir/URL/glob, 0 for webcam
         hide_labels=False,  # hide labels
         hide_conf=False,  # hide confidences
         ):
-    stframe = st.empty()
     save_img = not nosave and not source.endswith('.txt')  # save inference images
     webcam = source.isnumeric() or source.endswith('.txt') or source.lower().startswith(
         ('rtsp://', 'rtmp://', 'http://', 'https://'))
@@ -70,7 +69,8 @@ def run(source,  # file/dir/URL/glob, 0 for webcam
         model = attempt_load(weights, map_location=device)  # load FP32 model
         stride = int(model.stride.max())  # model stride
         names = model.module.names if hasattr(model, 'module') else model.names  # get class names
-
+    st.markdown("<h3 style='text-align: center; color:#99ffff;'>Model Loaded...</h3>",
+                unsafe_allow_html=True)
     imgsz = check_img_size(imgsz, s=stride)  # check image size
 
     # Dataloader
@@ -103,11 +103,12 @@ def run(source,  # file/dir/URL/glob, 0 for webcam
             pred = model(img, augment=augment, visualize=visualize)[0]
 
         # NMS
-        pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det)
+        pred = non_max_suppression(pred, conf_thresh, iou_thres, classes, agnostic_nms, max_det=max_det)
         t2 = time_sync()
 
         # Process predictions
-        for i, det in enumerate(pred):  # detections per image
+        countCrowd = 0
+        for i, det in enumerate(pred):# detections per image
             if webcam:  # batch_size >= 1
                 p, s, im0, frame = path[i], f'{i}: ', im0s[i].copy(), dataset.count
             else:
@@ -138,6 +139,7 @@ def run(source,  # file/dir/URL/glob, 0 for webcam
 
                     if save_img or save_crop or view_img:  # Add bbox to image
                         c = int(cls)  # integer class
+                        #cprint(f"{c,names[c]}",'blue')
                         label = None if hide_labels else (names[c] if hide_conf else f'{names[c]} {conf:.2f}')
                         plot_one_box(xyxy, im0, label=label, color=colors(c, True), line_thickness=line_thickness)
                         if save_crop:
@@ -148,9 +150,6 @@ def run(source,  # file/dir/URL/glob, 0 for webcam
 
             # Stream results
             if view_img:
-                # stframe.empty()
-                # rgb = cv2.cvtColor(im0, cv2.COLOR_BGR2RGB)
-                # stframe.image(rgb)
                 cv2.imshow(str(p), im0)
                 cv2.waitKey(1)  # 1 millisecond
 
@@ -181,9 +180,8 @@ def run(source,  # file/dir/URL/glob, 0 for webcam
 
     return save_path
 
-def main(source, conf_thres = 0.3):
-    #print(colorstr('detect: ') + ', '.join(f'{k}={v}' for k, v in vars(opt).items()))
+def main(source, conf_thresh = 0.3):
     check_requirements(exclude=('tensorboard', 'thop'))
-    run(source = source, conf_thres=conf_thres)
+    run(source = source, conf_thresh=conf_thresh)
 
 

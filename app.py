@@ -1,14 +1,12 @@
 import streamlit as st
 from detect import main
 import os
-import pandas as pd
 import base64
 from PIL import Image
-import sys
 
 source_dict = {
     "Camera": False,
-    "Uploaded Video" : True
+    "Uploaded Video": True
 }
 
 
@@ -24,18 +22,15 @@ def app():
             if uploaded_file is not None:
                 st.markdown("<h5 style='text-align: center; color:#99ffff;'>Data Loaded...</h5>",
                             unsafe_allow_html=True)
-                if buttons():
-                    os.kill()
                 with open(os.path.join(os.getcwd(), uploaded_file.name), "wb") as f:
                     f.write(uploaded_file.getbuffer())
-                main(source = os.path.join(os.getcwd(), uploaded_file.name), conf_thres = thresh)
+                main(source = os.path.join(os.getcwd(), uploaded_file.name), conf_thresh = thresh)
                 os.remove(os.path.join(os.getcwd(), uploaded_file.name))
             else:
                 st.markdown("<h2 style='text-align: center; color:#99ffff;'>Upload the video to detect.</h2>",
                         unsafe_allow_html=True)
         else:
-            main(source="0", conf_thres=thresh)
-        sys.exit()
+            main(source="0", conf_thresh=thresh)
 
 
 def sidebar():
@@ -68,7 +63,7 @@ def background():
 
 
 def banner():
-    col1, col2, col3 = st.beta_columns([1, 6, 1])
+    col1, col2, col3 = st.columns([1, 6, 1])
 
     with col1:
         st.write("")
@@ -81,7 +76,7 @@ def banner():
         st.write("")
 
 def buttons():
-    col1, col2, col3 = st.beta_columns([13,6,10])
+    col1, col2, col3 = st.columns([13,6,10])
 
     with col1:
         st.write("")
