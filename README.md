@@ -14,10 +14,10 @@ Our application has a high mask and crowd distinction rate which is higher and m
 ## SCREENSHOTS 👀
 
 <p align="center">
-  <img src="https://github.com/sagnik1511/India-Connect-AI-Hackathon/blob/main/assets/Screenshot_153.png" height="220">
-  <img src="https://github.com/sagnik1511/India-Connect-AI-Hackathon/blob/main/assets/Screenshot_154.png" height="220">
-  <img src="https://github.com/sagnik1511/India-Connect-AI-Hackathon/blob/main/assets/Screenshot_156.png" height="220">
-  <img src="https://github.com/sagnik1511/India-Connect-AI-Hackathon/blob/main/assets/Screenshot_157.png" height="220">
+  <img src="https://github.com/sagnik1511/India-Connect-AI-Hackathon/blob/main/assets/Screenshot_153.png" height="200">
+  <img src="https://github.com/sagnik1511/India-Connect-AI-Hackathon/blob/main/assets/Screenshot_154.png" height="200">
+  <img src="https://github.com/sagnik1511/India-Connect-AI-Hackathon/blob/main/assets/Screenshot_156.png" height="200">
+  <img src="https://github.com/sagnik1511/India-Connect-AI-Hackathon/blob/main/assets/Screenshot_157.png" height="200">
  </p> 
  
  ## FUTURE IMPROVEMENTS  💻
