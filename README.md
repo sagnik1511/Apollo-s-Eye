@@ -26,6 +26,6 @@ Our application has a high mask and crowd distinction rate which is higher and m
 
  
  ## Project Authors 👨‍💻
-* Sagnik Roy
-* Padmanabha Banerjee
-* Anubhab Sarkar
+* [Sagnik Roy](https://github.com/sagnik1511)
+* [Padmanabha Banerjee](https://github.com/BlueBlaze6335)
+* [Anubhab Sarkar](https://github.com/anubhab1710)
