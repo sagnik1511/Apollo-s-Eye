@@ -20,6 +20,19 @@ Our application has a high mask and crowd distinction rate which is higher and m
   <img src="https://github.com/sagnik1511/India-Connect-AI-Hackathon/blob/main/assets/Screenshot_157.png" height="200">
  </p> 
  
+ ## HOW TO RUN 🏃‍♂️
+ 
+ ```
+  $ git clone https://github.com/sagnik1511/India-Connect-AI-Hackathon.git
+  $ cd India-Connect-AI-Hackathon
+  $ pip install -r requirements.txt
+  $ python run launcher.py
+ ```
+ After the launcher opens , press the `Launch` button to launch the web app !
+ 
+ ***Demo Video*** - [link](https://drive.google.com/file/d/1eQImkPA9MPoDvAo7OykkY2JtJlLFumz0/view)
+ 
+ 
  ## FUTURE IMPROVEMENTS  💻
 *	We can enhance our model to detect any form of obstruction on railway tracks. In 2020, a huge number of migrant laborers lost their lives after sleeping on railroads. Furthermore, the death of animals after getting hit by a train is a major issue that has been a factor of concern for many years. We wish to aid these problems using our solution to create an alert to local authorities/police using camera systems installed at appropriate locations; so that they can clear off the track before any lives are lost.
 * Our solution can be formulated and deployed in the form of a smartphone app architecture, through which any person using it will be able to report problematic crowd activities like street brawls or strikes using live feed/images so that the police or patrol can take immediate actions to disperse them using location. 
