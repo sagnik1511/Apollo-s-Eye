@@ -3,6 +3,8 @@
   <img src="https://github.com/sagnik1511/India-Connect-AI-Hackathon/blob/main/assets/Apollo's%20Eye.jpg" height="500">
  </p>
  
+### This repo/ project is the solution of NVIDIA INDIA CONNECT AI HACKATHON-2021 (Oct-Nov'21)
+
 ## PROBLEM STATEMENT ⭐
 To enforce social distancing, it is important to monitor suspicious scenarios like crowd gathering or tracking etc. Usage of AI has surpassed traditional methods and can help automate this pattern recognition. The objective of this problem statement is to find different patterns on input sources like camera, satellite, social platforms which can help identify suspicious activities to stop or track covid-19 spread. 
 
